@@ -144,4 +144,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scaleRange: {x: 0.1, y: 0.5}
-  scaleDecreaseRange: {x: 0.02, y: 0.15}
+  minimalScale: 0.05
+  clicksRange: {x: 2, y: 6}

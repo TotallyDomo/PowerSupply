@@ -13,6 +13,8 @@ public class TrashManager : MonoBehaviour
     int index;
     Vector2 spawnPoint;
 
+    int trashCount;
+
     void Awake()
     {
         Clock.OnTick += OnTick;
@@ -27,6 +29,16 @@ public class TrashManager : MonoBehaviour
         spawnPoint.y = Random.Range(spawnRangeY.x, spawnRangeY.y);
 
         Instantiate(trashPrefabs[index], spawnPoint, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        trashCount++;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        trashCount--;
     }
 
 }
