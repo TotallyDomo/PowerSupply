@@ -20,9 +20,20 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     float MaxWaste;
 
-    public void AddPower(float amount)
+    public static Action<float> UpdatePower;
+    public static Action<float> AddHeat;
+
+    void Awake()
     {
-        currentPower += amount;
+        UpdatePower = null;
+        AddHeat = null;
+        UpdatePower += OnUpdatePower;
+        AddHeat += OnAddHeat;
+    }
+
+    public void OnUpdatePower(float amount)
+    {
+        currentPower = amount;
 
         if (currentPower > MaxPower)
         {
@@ -31,6 +42,20 @@ public class GameManager : MonoBehaviour
         else if (currentPower < minPower)
         {
             // you are fired
+        }
+        else
+        {
+            //currentPower = 0;
+        }
+    }
+
+    void OnAddHeat(float amount)
+    {
+        currentHeat += amount;
+
+        if (currentHeat > MaxHeat)
+        {
+            // boom
         }
     }
 

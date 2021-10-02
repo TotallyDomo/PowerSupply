@@ -14,6 +14,8 @@ public class Rod : MonoBehaviour
     float tempY, mouseDeltaY;
     Vector3 rodPos, prevMousePos;
 
+    float powerOutput;
+
     bool isSinking = true;
     Coroutine sinkingCoroutine;
 
@@ -28,6 +30,11 @@ public class Rod : MonoBehaviour
             Sink();
     }
 
+    public float GeneratePower()
+    {
+        return Mathf.Abs(transform.position.y - maxY) * basePowerOutput * Time.deltaTime;
+    }
+
     void Sink()
     {
         tempY = transform.position.y;
@@ -40,11 +47,6 @@ public class Rod : MonoBehaviour
 
         rodPos.y = tempY;
         transform.position = rodPos;
-    }
-
-    void OnTick()
-    {
-        
     }
 
     void OnMouseDown()
@@ -77,10 +79,5 @@ public class Rod : MonoBehaviour
         transform.position = rodPos;
 
         prevMousePos = Input.mousePosition;
-    }
-
-    void OnDestroy()
-    {
-        Clock.OnTick -= OnTick;
     }
 }
