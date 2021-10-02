@@ -8,15 +8,16 @@ public class Singleton : MonoBehaviour
 
     protected virtual void Awake()
     {
-        if (I != null && I != this)
-            Destroy(gameObject);
-        else
+        //if (I != null && I != this)
+        //{
+        //    Destroy(gameObject);
+        //}
+        //else
             I = this;
     }
 
     protected virtual void OnDestroy()
     {
-        if (I == this)
-            I = null;
+        I = null;
     }
 }

@@ -20,12 +20,6 @@ public class GameManager : Singleton
     [SerializeField]
     float MaxWaste;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        currentPower = currentHeat = currentWaste = 0;
-    }
-
     public void AddPower(float amount)
     {
         currentPower += amount;
