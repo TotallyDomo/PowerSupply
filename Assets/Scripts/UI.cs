@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UI : Singleton
 {
-
     protected override void Awake()
     {
         base.Awake();
