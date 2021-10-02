@@ -5,22 +5,39 @@ using UnityEngine;
 
 public class GameManager : Singleton
 {
+    [SerializeField, Header("Power")]
+    float currentPower;
     [SerializeField]
-    float power, heat, waste;
+    float minPower, MaxPower;
 
-    float Power => power;
-    float Heat => heat;
-    float Waste => waste;
+    [SerializeField, Header("Heat")]
+    float currentHeat;
+    [SerializeField]
+    float MaxHeat;
+
+    [SerializeField, Header("Waste")]
+    float currentWaste;
+    [SerializeField]
+    float MaxWaste;
 
     protected override void Awake()
     {
         base.Awake();
-        power = heat = waste = 0;
+        currentPower = currentHeat = currentWaste = 0;
     }
 
     public void AddPower(float amount)
     {
-        power += amount;
+        currentPower += amount;
+
+        if (currentPower > MaxPower)
+        {
+            //boom
+        }
+        else if (currentPower < minPower)
+        {
+            // you are fired
+        }
     }
 
 }

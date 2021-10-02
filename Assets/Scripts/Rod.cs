@@ -14,19 +14,28 @@ public class Rod : MonoBehaviour
     float tempY, mouseDeltaY;
     Vector3 rodPos, prevMousePos;
 
-    bool isSinking;
+    bool isSinking = true;
 
     void Awake()
     {
-        Clock.OnTick += OnTick;
         rodPos = transform.position;
     }
 
     void Update()
     {
-        if (!isSinking)
-            return;
+        GeneratePower();
 
+        if (isSinking)
+            Sink();
+    }
+
+    void GeneratePower()
+    {
+
+    }
+
+    void Sink()
+    {
         tempY = transform.position.y;
 
         if (tempY > minY)
