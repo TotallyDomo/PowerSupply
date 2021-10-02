@@ -15,6 +15,7 @@ public class Rod : MonoBehaviour
     Vector3 rodPos, prevMousePos;
 
     bool isSinking = true;
+    Coroutine sinkingCoroutine;
 
     void Awake()
     {
@@ -61,7 +62,16 @@ public class Rod : MonoBehaviour
 
     void OnMouseUp()
     {
+        if (sinkingCoroutine != null)
+            StopCoroutine(sinkingCoroutine);
+        sinkingCoroutine = StartCoroutine(delayedSinking());
+    }
+
+    IEnumerator delayedSinking()
+    {
+        yield return new WaitForSeconds(2f);
         isSinking = true;
+        sinkingCoroutine = null;
     }
 
     void OnMouseDrag()

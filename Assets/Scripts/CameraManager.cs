@@ -18,21 +18,18 @@ public class CameraManager : Singleton
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("aaa");
             ToggleCameras(true, false, false);
             LowerCam.texture = WaterImage;
             UpperCam.texture = WasteImage;
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            Debug.Log("bbb");
             ToggleCameras(false, true, false);
             LowerCam.texture = CoreImage;
             UpperCam.texture = WasteImage;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            Debug.Log("ccc");
             ToggleCameras(false, false, true);
             LowerCam.texture = CoreImage;
             UpperCam.texture = WaterImage;
