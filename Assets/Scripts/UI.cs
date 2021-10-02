@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI : Singleton
+public class UI : MonoBehaviour
 {
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         DontDestroyOnLoad(gameObject);
     }
 

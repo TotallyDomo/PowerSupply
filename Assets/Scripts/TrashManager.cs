@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashManager : Singleton
+public class TrashManager : MonoBehaviour
 {
     [SerializeField]
     GameObject[] trashPrefabs;
@@ -13,12 +13,12 @@ public class TrashManager : Singleton
     int index;
     Vector2 spawnPoint;
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         Clock.OnTick += OnTick;
-
     }
+
+    void OnDestroy() => Clock.OnTick -= OnTick;
 
     void OnTick()
     {

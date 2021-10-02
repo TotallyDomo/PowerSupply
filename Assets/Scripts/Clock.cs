@@ -3,22 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Clock : Singleton
+public class Clock : MonoBehaviour
 {
     public float TickTimer { get; private set; }
     float currentTime;
 
     public static Action OnTick;
 
-    protected override void Awake()
+    void Awake()
     {
-        base.Awake();
         OnTick = null;
         TickTimer = 1f;
         currentTime = 0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         currentTime -= Time.deltaTime;

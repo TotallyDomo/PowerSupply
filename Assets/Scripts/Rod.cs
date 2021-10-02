@@ -24,15 +24,8 @@ public class Rod : MonoBehaviour
 
     void Update()
     {
-        GeneratePower();
-
         if (isSinking)
             Sink();
-    }
-
-    void GeneratePower()
-    {
-
     }
 
     void Sink()
@@ -51,7 +44,7 @@ public class Rod : MonoBehaviour
 
     void OnTick()
     {
-
+        
     }
 
     void OnMouseDown()

@@ -13,7 +13,7 @@ public class Trash : MonoBehaviour
     float minimalScale = 0.05f;
 
     [SerializeField]
-    Vector2 scaleDecreaseRange = new Vector2(0.02f, 0.2f);
+    Vector2Int clicksRange = new Vector2Int(2, 6);
 
     int clicksToDestroy, currentClicks;
     Vector3 originalScale;
@@ -30,7 +30,7 @@ public class Trash : MonoBehaviour
         transform.localScale = Vector3.one * scale;
         originalScale = transform.localScale;
 
-        clicksToDestroy = Random.Range(2, 7);
+        clicksToDestroy = Random.Range(clicksRange.x, clicksRange.y);
         currentClicks = clicksToDestroy;
 
         velocity = Vector2.right * Random.Range(0.8f, 2.0f);

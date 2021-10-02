@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CameraManager : Singleton
+public class CameraManager : MonoBehaviour
 {
     [SerializeField]
     RenderTexture CoreImage, WaterImage, WasteImage;

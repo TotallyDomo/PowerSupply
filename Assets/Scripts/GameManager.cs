@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : Singleton
+public class GameManager : MonoBehaviour
 {
     [SerializeField, Header("Power")]
     float currentPower;
