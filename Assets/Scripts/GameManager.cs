@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public void OnUpdatePower(float amount)
     {
         currentPower = amount;
+        powerSlider.value = amount;
 
         if (currentPower > MaxPower)
         {
@@ -54,9 +55,6 @@ public class GameManager : MonoBehaviour
         {
             UI.GameOver("Reactor produced too little power, which caused a power outage. As the lead engineer of the power plant, you are fired!");
         }
-
-        powerSlider.value = amount;
-        heatSlider.value = amount;
     }
 
     void OnUpdateHeat(int amount)
@@ -68,7 +66,6 @@ public class GameManager : MonoBehaviour
         {
             UI.GameOver("Reactor got overheated and melted down! All hope is lost.");
         }
-
     }
 
     void OnUpdateWaste(int amount)
