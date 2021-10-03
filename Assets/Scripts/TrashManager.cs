@@ -34,11 +34,13 @@ public class TrashManager : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         trashCount++;
+        GameManager.UpdateHeat(trashCount);
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         trashCount--;
+        GameManager.UpdateHeat(trashCount);
     }
 
 }

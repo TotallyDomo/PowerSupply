@@ -32,7 +32,7 @@ public class Rod : MonoBehaviour
 
     public float GeneratePower()
     {
-        return Mathf.Abs(transform.position.y - maxY) * basePowerOutput * Time.deltaTime;
+        return Mathf.Abs(transform.position.y - maxY) * basePowerOutput;
     }
 
     void Sink()

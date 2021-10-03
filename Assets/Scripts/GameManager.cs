@@ -21,14 +21,14 @@ public class GameManager : MonoBehaviour
     float MaxWaste;
 
     public static Action<float> UpdatePower;
-    public static Action<float> AddHeat;
+    public static Action<float> UpdateHeat;
 
     void Awake()
     {
         UpdatePower = null;
-        AddHeat = null;
+        UpdateHeat = null;
         UpdatePower += OnUpdatePower;
-        AddHeat += OnAddHeat;
+        UpdateHeat += OnUpdateHeat;
     }
 
     public void OnUpdatePower(float amount)
@@ -37,25 +37,22 @@ public class GameManager : MonoBehaviour
 
         if (currentPower > MaxPower)
         {
-            //boom
+            UI.GameOver("Reactor produced too much power, which fried all electronic devices in the city. As the lead engineer of the power plant, you are fired! ");
         }
         else if (currentPower < minPower)
         {
-            // you are fired
+            UI.GameOver("Reactor produced too little power, which caused a power outage. As the lead engineer of the power plant, you are fired!");
         }
-        else
-        {
-            //currentPower = 0;
-        }
+
     }
 
-    void OnAddHeat(float amount)
+    void OnUpdateHeat(float amount)
     {
-        currentHeat += amount;
+        currentHeat = amount;
 
         if (currentHeat > MaxHeat)
         {
-            // boom
+            UI.GameOver("Reactor got overheated and melted down! All hope is lost.");
         }
     }
 

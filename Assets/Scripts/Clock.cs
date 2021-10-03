@@ -13,7 +13,7 @@ public class Clock : MonoBehaviour
     void Awake()
     {
         OnTick = null;
-        TickTimer = 1f;
+        TickTimer = 2f;
         currentTime = 0f;
     }
 
