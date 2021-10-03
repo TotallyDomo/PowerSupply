@@ -34,7 +34,7 @@ public class UI : MonoBehaviour
         GameOverState = true;
         GameOverText.text = message;
         var time = TimeSpan.FromSeconds(Clock.time);
-        TimeText.text = $"{(time.TotalMinutes).ToString("00")}:{(time.TotalSeconds).ToString("00")}";
+        TimeText.text = $"{time.TotalMinutes:00}:{time.TotalSeconds:00}";
         ScoreText.text = $"{GameManager.Score}";
         GameOverObject.SetActive(true);
         Time.timeScale = 0;

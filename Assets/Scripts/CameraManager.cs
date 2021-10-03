@@ -16,19 +16,19 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
         {
             ToggleCameras(true, false, false);
             LowerCam.texture = WaterImage;
             UpperCam.texture = WasteImage;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
         {
             ToggleCameras(false, true, false);
             LowerCam.texture = CoreImage;
             UpperCam.texture = WasteImage;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
         {
             ToggleCameras(false, false, true);
             LowerCam.texture = CoreImage;
