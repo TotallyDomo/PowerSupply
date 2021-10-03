@@ -267,7 +267,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &203784139
 Transform:
   m_ObjectHideFlags: 0
@@ -968,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   - {fileID: 5610451913866874473, guid: 4573d48bf0569b84da0120fbbac63c95, type: 3}
   - {fileID: 5610451913866874473, guid: 4573d48bf0569b84da0120fbbac63c95, type: 3}
   spawnRangeX: {x: -15, y: -11}
-  spawnRangeY: {x: 17, y: 25}
+  spawnRangeY: {x: 17.5, y: 25}
 --- !u!61 &1359161700
 BoxCollider2D:
   m_ObjectHideFlags: 0
