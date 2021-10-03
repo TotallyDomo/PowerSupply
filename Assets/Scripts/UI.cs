@@ -21,6 +21,7 @@ public class UI : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 60;
         GameOverState = false;
         Time.timeScale = 1;
         GameOver += OnGameOver;

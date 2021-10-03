@@ -29,7 +29,7 @@ public class Waste : MonoBehaviour
 
     void OnMouseDrag()
     {
-        var mouseDelta = (prevMousePos - Input.mousePosition) * Time.deltaTime * 2f;
+        var mouseDelta = (prevMousePos - Input.mousePosition) * Time.deltaTime;
 
         rb.velocity -= new Vector2(mouseDelta.x, mouseDelta.y);
 

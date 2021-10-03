@@ -71,7 +71,7 @@ public class Rod : MonoBehaviour
 
     void OnMouseDrag()
     {
-        mouseDeltaY = (prevMousePos.y - Input.mousePosition.y) * Time.deltaTime * 2f;
+        mouseDeltaY = (prevMousePos.y - Input.mousePosition.y) * Time.deltaTime;
         rodPos.y -= mouseDeltaY;
 
         rodPos.y = Mathf.Clamp(rodPos.y, minY, maxY);
