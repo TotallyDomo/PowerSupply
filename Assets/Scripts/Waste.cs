@@ -18,18 +18,18 @@ public class Waste : MonoBehaviour
     void OnMouseDown()
     {
         prevMousePos = Input.mousePosition;
-        rb.isKinematic = true;
+        rb.gravityScale = 0f;
         rb.velocity = Vector2.zero;
     }
 
     void OnMouseUp()
     {
-        rb.isKinematic = false;
+        rb.gravityScale = 1f;
     }
 
     void OnMouseDrag()
     {
-        var mouseDelta = (prevMousePos - Input.mousePosition) * Time.deltaTime;
+        var mouseDelta = (prevMousePos - Input.mousePosition) * Time.deltaTime * 2f;
 
         rb.velocity -= new Vector2(mouseDelta.x, mouseDelta.y);
 
