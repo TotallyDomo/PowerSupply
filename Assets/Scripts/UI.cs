@@ -15,10 +15,13 @@ public class UI : MonoBehaviour
     GameObject GameOverObject;
 
     [SerializeField]
-    TMP_Text GameOverText;
+    TMP_Text GameOverText, TimeText, ScoreText;
+
+    public static bool GameOverState = false;
 
     void Awake()
     {
+        GameOverState = false;
         Time.timeScale = 1;
         GameOver += OnGameOver;
     }
@@ -28,7 +31,11 @@ public class UI : MonoBehaviour
     void OnGameOver(string message)
     {
         // trigger game over
+        GameOverState = true;
         GameOverText.text = message;
+        var time = TimeSpan.FromSeconds(Clock.time);
+        TimeText.text = $"{(time.TotalMinutes).ToString("00")}:{(time.TotalSeconds).ToString("00")}";
+        ScoreText.text = $"{GameManager.Score}";
         GameOverObject.SetActive(true);
         Time.timeScale = 0;
     }

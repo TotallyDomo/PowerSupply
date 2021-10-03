@@ -10,9 +10,10 @@ public class WasteManager : MonoBehaviour
     [SerializeField]
     Transform spawnPoint;
 
-    int wasteCount;
-    void Awake()
+    int tickCount;
+    void Start()
     {
+        tickCount = 0;
         Clock.OnTick += OnTick;
     }
 
@@ -20,16 +21,11 @@ public class WasteManager : MonoBehaviour
 
     void OnTick()
     {
-        wasteCount++;
-        Instantiate(wastePrefab, spawnPoint.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
-        GameManager.UpdateWaste(wasteCount);
+        tickCount++;
+        if (tickCount % 4 == 0)
+        {
+            Instantiate(wastePrefab, spawnPoint.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+            GameManager.UpdateWaste(1);
+        }
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        wasteCount--;
-        GameManager.UpdateWaste(wasteCount);
-        Destroy(collision.gameObject);
-    }
-
 }

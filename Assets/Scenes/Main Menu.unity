@@ -437,8 +437,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -5.7, y: 0}
+  m_SizeDelta: {x: -11.301514, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &95625860
 MonoBehaviour:
@@ -459,15 +459,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Click&Drag fuel rods to control power output;
+  m_text: 'Click&Drag fuel rods to control power output
 
 
-    Click on trash in
-    the water to prevent pipes from clogging;
+    Click on trash in the
+    water to prevent pipes from clogging
 
 
-    Put radioactive waste into barrels
-    to safely dispose it;
+    Click&Drag radioactive waste into
+    the barrel to safely dispose it
 
 
     Camera controls:
@@ -545,7 +545,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 56.97766, z: 0, w: 0}
+  m_margin: {x: 6.7809753, y: 56.97766, z: 0, w: 6.7809753}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1198,6 +1198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverObject: {fileID: 0}
   GameOverText: {fileID: 0}
+  TimeText: {fileID: 0}
+  ScoreText: {fileID: 0}
 --- !u!114 &1677338492
 MonoBehaviour:
   m_ObjectHideFlags: 0

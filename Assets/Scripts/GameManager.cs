@@ -27,10 +27,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     Slider wasteSlider;
 
-
     public static Action<float> UpdatePower;
     public static Action<int> UpdateHeat;
     public static Action<int> UpdateWaste;
+
+    public static long Score;
 
     void Awake()
     {
@@ -40,6 +41,43 @@ public class GameManager : MonoBehaviour
         UpdatePower += OnUpdatePower;
         UpdateHeat += OnUpdateHeat;
         UpdateWaste += OnUpdateWaste;
+        Score = 0;
+        InvokeRepeating("AddScore", 0f, 0.25f);
+    }
+
+    void AddScore()
+    {
+        if (UI.GameOverState)
+            return;
+
+        // don't code like this
+        // POWER
+        if (currentPower < 6)
+            Score += 50;
+        else if (currentPower < 9)
+            Score += 100;
+        else if (currentPower < 12)
+            Score += 250;
+        else if (currentPower < 15)
+            Score += 100;
+        else
+            Score += 50;
+
+        //HEAT
+        if (currentHeat < 4)
+            Score += 200;
+        else if (currentHeat < 10)
+            Score += 100;
+        else
+            Score += 50;
+
+        //WASTE
+        if (currentWaste <= 0)
+            Score += 200;
+        else if (currentWaste < 3)
+            Score += 100;
+        else
+            Score += 50;
     }
 
     public void OnUpdatePower(float amount)
@@ -70,8 +108,8 @@ public class GameManager : MonoBehaviour
 
     void OnUpdateWaste(int amount)
     {
-        currentWaste = amount;
-        wasteSlider.value = amount;
+        currentWaste += amount;
+        wasteSlider.value = currentWaste;
 
         if (currentWaste > MaxWaste)
         {

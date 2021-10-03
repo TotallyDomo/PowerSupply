@@ -33,7 +33,7 @@ public class Trash : MonoBehaviour
         clicksToDestroy = Random.Range(clicksRange.x, clicksRange.y);
         currentClicks = clicksToDestroy;
 
-        velocity = Vector2.right * Random.Range(0.8f, 2.0f);
+        velocity = Vector2.right * Random.Range(1.25f, 3f);
 
         Destroy(gameObject, 90f);
     }

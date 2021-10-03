@@ -19,6 +19,7 @@ public class Waste : MonoBehaviour
     {
         prevMousePos = Input.mousePosition;
         rb.isKinematic = true;
+        rb.velocity = Vector2.zero;
     }
 
     void OnMouseUp()
@@ -33,5 +34,11 @@ public class Waste : MonoBehaviour
         rb.velocity -= new Vector2(mouseDelta.x, mouseDelta.y);
 
         prevMousePos = Input.mousePosition;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameManager.UpdateWaste(-1);
+        Destroy(gameObject);
     }
 }

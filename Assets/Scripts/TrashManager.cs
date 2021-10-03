@@ -15,7 +15,7 @@ public class TrashManager : MonoBehaviour
 
     int trashCount;
 
-    void Awake()
+    void Start()
     {
         Clock.OnTick += OnTick;
     }
