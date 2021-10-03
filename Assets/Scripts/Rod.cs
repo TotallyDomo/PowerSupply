@@ -6,7 +6,9 @@ public class Rod : MonoBehaviour
 {
 
     [SerializeField]
-    float basePowerOutput = 1f, sinkingSpeed = 0.2f;
+    float basePowerOutput = 1f, sinkingSpeed = 0.18f;
+
+    float extraOutput = 0f;
 
     [SerializeField]
     float minY, maxY;
@@ -14,25 +16,52 @@ public class Rod : MonoBehaviour
     float tempY, mouseDeltaY;
     Vector3 rodPos, prevMousePos;
 
-    float powerOutput;
+    int tickCount;
 
     bool isSinking = true;
+    float stopTime = 2f;
     Coroutine sinkingCoroutine;
+    SpriteRenderer spriteRenderer;
 
     void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rodPos = transform.position;
+        Clock.OnTick += OnTick;
+    }
+
+    void OnTick()
+    {
+        tickCount++;
+        if (tickCount % 10 == 0)
+        {
+            basePowerOutput += 0.05f;
+            sinkingSpeed += 0.02f;
+            stopTime -= 0.05f;
+        }
     }
 
     void Update()
     {
         if (isSinking)
             Sink();
+
+        if (transform.position.y == minY)
+        {
+            extraOutput += 0.1f * Time.deltaTime;
+        }
+        else
+            extraOutput -= 0.1f * Time.deltaTime;
+
+        extraOutput = Mathf.Clamp01(extraOutput);
+
+        spriteRenderer.color = new Color(1, 1-extraOutput, 1-extraOutput);
+
     }
 
     public float GeneratePower()
     {
-        return Mathf.Abs(transform.position.y - maxY) * basePowerOutput;
+        return Mathf.Abs(transform.position.y - maxY) *(basePowerOutput + extraOutput);
     }
 
     void Sink()
@@ -64,7 +93,7 @@ public class Rod : MonoBehaviour
 
     IEnumerator delayedSinking()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(stopTime);
         isSinking = true;
         sinkingCoroutine = null;
     }

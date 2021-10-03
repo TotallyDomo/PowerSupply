@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Clock : MonoBehaviour
 {
-    public float TickTimer { get; private set; }
+    [SerializeField]
+    float TickTimer;
     float currentTime;
     public static float time;
 
@@ -25,7 +26,9 @@ public class Clock : MonoBehaviour
 
         if (currentTime <= 0f && !UI.GameOverState)
         {
-            TickTimer -= 0.03f;
+            TickTimer *= 0.985f;
+            if (TickTimer < 0.5f)
+                TickTimer = 0.5f;
             currentTime = TickTimer;
             OnTick.Invoke();
         }
