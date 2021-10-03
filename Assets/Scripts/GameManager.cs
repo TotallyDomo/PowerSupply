@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
 
         if (currentWaste > MaxWaste)
         {
-            UI.GameOver("The safety comitee has closed the reactor due to overwhelming amount of radioactive waste! You are now unemployed.");
+            UI.GameOver("The safety committee has closed the reactor due to overwhelming amount of radioactive waste! You are now unemployed.");
         }
     }
 
