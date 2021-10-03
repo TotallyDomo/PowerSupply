@@ -34,6 +34,8 @@ public class Trash : MonoBehaviour
         currentClicks = clicksToDestroy;
 
         velocity = Vector2.right * Random.Range(0.8f, 2.0f);
+
+        Destroy(gameObject, 90f);
     }
 
     void Update()
@@ -47,10 +49,7 @@ public class Trash : MonoBehaviour
         currentClicks--;
         transform.localScale = originalScale * currentClicks / clicksToDestroy;
 
-        if (transform.localScale.x < minimalScale)
-            transform.localScale = new Vector3(minimalScale, minimalScale, minimalScale);
-
-        if (currentClicks <= 0)
+        if (transform.localScale.x < minimalScale || currentClicks <= 0)
             Destroy(gameObject);
     }
 }
