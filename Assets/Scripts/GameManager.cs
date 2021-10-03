@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
         if (currentPower > MaxPower)
         {
-            UI.GameOver("Reactor produced too much power, which fried all electronic devices in the city. As the lead engineer of the power plant, you are fired! ");
+            UI.GameOver("Reactor produced too much power, which fried all electronic devices in the city. As the lead engineer of the power plant, you are fired!");
         }
         else if (currentPower < minPower)
         {
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
 
         if (currentHeat > MaxHeat)
         {
-            UI.GameOver("Reactor got overheated and melted down! All hope is lost.");
+            UI.GameOver("The core temperature reached critical levels and triggered a meltdown! All hope is lost...");
         }
     }
 
