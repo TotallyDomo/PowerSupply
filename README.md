@@ -1,6 +1,8 @@
 # PowerSupply
 Ludum Dare 49 entry.
 
+https://mr-gnome.itch.io/powersupply
+
 All code/assets were created by me during the weekend. My primary focus in this jam was to work solo and try to create my own sprites. Sprite creation took longer than anticipated, so I didn't have time to do any audio work.
 
 Special thanks to finsternacht for keeping me company during drawing process.
